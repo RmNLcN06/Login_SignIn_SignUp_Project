@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +11,38 @@
     <title>Document</title>
 </head>
 <body>
+    <header>
+        <nav>
+            <div>
+                <h3>Test</h3>
+                <ul class="menu-main">
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Current Sales</a></li>
+                    <li><a href="#">Member +</a></li>
+                </ul>
+            </div>
+            <ul class="menu-member">
+                <?php 
+                    if(isset($_SESSION['userid']))
+                    {
+                ?>
+                    <li><a href="#"><?php echo $_SESSION['useruid']; ?></a></li>
+                    <li><a class="header-login-a" href="includes/_logout.php">Logout</a></li>
+                <?php
+                    }
+                    else
+                    {
+                ?>
+                    <li><a href="#">Sign up</a></li>
+                    <li><a class="header-login-a" href="#">Login</a></li>
+                <?php
+                    }
+                ?>
+            </ul>
+        </nav>
+    </header>
+
     <section class="index-login">
         <div class="wrapper">
             <div class="index-login-signup">
